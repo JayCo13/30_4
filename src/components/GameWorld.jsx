@@ -79,7 +79,7 @@ const GameWorld = () => {
   const startGame = () => {
     setGameStarted(true);
     setGameOver(false);
-    setScore(0);
+    setScore(29);
     setDinoY(0);
     setJumpVelocity(0);
     setIsJumping(false);
@@ -564,78 +564,6 @@ const GameWorld = () => {
         </div>
       )}
 
-      {/* Game Over Dialog - Only show when gameOver is true AND video is not showing */}
-      {gameOver && !showVideo && score < 30 && (
-        <div 
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            textAlign: 'center',
-            background: 'linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(178, 34, 34, 0.95) 100%)',
-            padding: '12px',
-            borderRadius: '8px',
-            boxShadow: '0 0 20px rgba(255, 0, 0, 0.3)',
-            border: '1px solid rgba(255, 0, 0, 0.3)',
-            zIndex: 1000,
-            width: '50%',
-            maxWidth: '300px',
-            backdropFilter: 'blur(10px)',
-            animation: 'fadeInScale 0.5s ease-out',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '8px'
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div style={{ 
-            fontSize: '18px',
-            color: '#FFD700', 
-            textShadow: '0 0 10px rgba(255, 215, 0, 0.5)',
-            fontWeight: 'bold',
-            letterSpacing: '1px',
-            animation: 'pulseText 2s infinite',
-            marginBottom: '4px'
-          }}>
-            Các đồng chí!
-          </div>
-          <div style={{ 
-            fontSize: '14px',
-            color: '#fff',
-            lineHeight: '1.4',
-            textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
-            marginBottom: '8px'
-          }}>
-            Ngày {score}/04/1975 rồi,<br/>
-            cố lên, tiến lên phía trước!
-          </div>
-          <button 
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              startGame();
-            }}
-            style={{
-              padding: '8px 16px',
-              fontSize: '14px',
-              cursor: 'pointer',
-              background: 'linear-gradient(45deg, #d4af37, #ffd700)',
-              color: '#8b0000',
-              border: 'none',
-              borderRadius: '6px',
-              boxShadow: '0 2px 8px rgba(255, 215, 0, 0.4)',
-              fontWeight: 'bold',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              margin: '0 auto'
-            }}
-          >
-            Tiếp tục chiến đấu
-          </button>
-        </div>
-      )}
-
       {/* Victory Dialog - Show when video ends */}
       {!showVideo && !gameStarted && !gameOver && score >= 30 && (
         <div 
@@ -745,76 +673,7 @@ const GameWorld = () => {
         `}
       </style>
       {/* Game Over Dialog - Only show when gameOver is true AND video is not showing */}
-      {gameOver && !showVideo && score < 30 && (
-        <div 
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            textAlign: 'center',
-            background: 'linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(178, 34, 34, 0.95) 100%)',
-            padding: '12px',
-            borderRadius: '8px',
-            boxShadow: '0 0 20px rgba(255, 0, 0, 0.3)',
-            border: '1px solid rgba(255, 0, 0, 0.3)',
-            zIndex: 1000,
-            width: '80%',
-            maxWidth: '300px',
-            backdropFilter: 'blur(10px)',
-            animation: 'fadeInScale 0.5s ease-out',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '8px'
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div style={{ 
-            fontSize: '18px',
-            color: '#FFD700', 
-            textShadow: '0 0 10px rgba(255, 215, 0, 0.5)',
-            fontWeight: 'bold',
-            letterSpacing: '1px',
-            animation: 'pulseText 2s infinite',
-            marginBottom: '4px'
-          }}>
-            Các đồng chí!
-          </div>
-          <div style={{ 
-            fontSize: '14px',
-            color: '#fff',
-            lineHeight: '1.4',
-            textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)',
-            marginBottom: '8px'
-          }}>
-            Ngày {score}/04/1975 rồi,<br/>
-            cố lên, tiến lên phía trước!
-          </div>
-          <button 
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              startGame();
-            }}
-            style={{
-              padding: '8px 16px',
-              fontSize: '14px',
-              cursor: 'pointer',
-              background: 'linear-gradient(45deg, #d4af37, #ffd700)',
-              color: '#8b0000',
-              border: 'none',
-              borderRadius: '6px',
-              boxShadow: '0 2px 8px rgba(255, 215, 0, 0.4)',
-              fontWeight: 'bold',
-              textTransform: 'uppercase',
-              letterSpacing: '1px',
-              margin: '0 auto'
-            }}
-          >
-            Tiếp tục chiến đấu
-          </button>
-        </div>
-      )}
+    
 
       {/* Victory Dialog - Show when video ends */}
       {!showVideo && !gameStarted && !gameOver && score >= 30 && (
@@ -964,7 +823,7 @@ const GameWorld = () => {
             lineHeight: '1.8',
             textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)'
           }}>
-            Ngày {score}/04/1975 rồi, bom đạn không thể cản bước chúng ta được<br/>
+            Ngày {score}/4/1975 rồi, bom đạn không thể cản bước chúng ta được<br/>
             cố lên, tiến lên phía trước!
           </div>
           <button 
