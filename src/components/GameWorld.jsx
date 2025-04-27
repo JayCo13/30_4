@@ -16,6 +16,7 @@ const GameWorld = () => {
   const [obstacles, setObstacles] = useState([]);
   const [dinoY, setDinoY] = useState(0);
   const [jumpVelocity, setJumpVelocity] = useState(0);
+  const [obstacleTypes, setObstacleTypes] = useState({});
   const [showTank, setShowTank] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
   const [tankPosition, setTankPosition] = useState(window.innerWidth);
@@ -23,6 +24,7 @@ const GameWorld = () => {
   // New states for freeze-frame and time-reverse effects
   const [freezeFrame, setFreezeFrame] = useState(false);
   const [timeReverse, setTimeReverse] = useState(false);
+  const [gameSnapshot, setGameSnapshot] = useState(null);
   
   const videoRef = useRef(null);
   const jumpSoundRef = useRef(null);
@@ -135,7 +137,6 @@ const GameWorld = () => {
     return () => clearInterval(jumpInterval);
   }, [isJumping, gameStarted, gameOver, jumpVelocity, config.gravity]);
 
-  // Handle keyboard controls
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (e.code === 'Space') {
@@ -150,8 +151,7 @@ const GameWorld = () => {
     
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [gameStarted, gameOver, isJumping]);
-  
+  }, [gameStarted, gameOver, handleJump, startGame]);
   // Main game loop - using config values
   useEffect(() => {
     if (!gameStarted || gameOver || freezeFrame || timeReverse) return;
