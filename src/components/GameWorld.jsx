@@ -79,7 +79,7 @@ const GameWorld = () => {
   const startGame = () => {
     setGameStarted(true);
     setGameOver(false);
-    setScore(29);
+    setScore(0);
     setDinoY(0);
     setJumpVelocity(0);
     setIsJumping(false);
