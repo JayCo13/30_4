@@ -16,7 +16,6 @@ const GameWorld = () => {
   const [obstacles, setObstacles] = useState([]);
   const [dinoY, setDinoY] = useState(0);
   const [jumpVelocity, setJumpVelocity] = useState(0);
-  const [obstacleTypes, setObstacleTypes] = useState({});
   const [showTank, setShowTank] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
   const [tankPosition, setTankPosition] = useState(window.innerWidth);
@@ -24,7 +23,6 @@ const GameWorld = () => {
   // New states for freeze-frame and time-reverse effects
   const [freezeFrame, setFreezeFrame] = useState(false);
   const [timeReverse, setTimeReverse] = useState(false);
-  const [gameSnapshot, setGameSnapshot] = useState(null);
   
   const videoRef = useRef(null);
   const jumpSoundRef = useRef(null);
