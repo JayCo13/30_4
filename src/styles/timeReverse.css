@@ -1,0 +1,88 @@
+/* Time Reverse Animation Styles */
+
+@keyframes timeReverse {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.1) rotate(360deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2) rotate(720deg);
+  }
+}
+
+.time-reverse-effect {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+}
+
+.time-reverse-effect::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border: 8px solid white;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  animation: timeReverse 1.5s ease-in-out forwards;
+}
+
+.time-reverse-effect::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 5px solid rgba(255, 215, 0, 0.8);
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: timeReverse 1.5s ease-in-out 0.2s forwards;
+}
+
+.freeze-frame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.freeze-frame::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
